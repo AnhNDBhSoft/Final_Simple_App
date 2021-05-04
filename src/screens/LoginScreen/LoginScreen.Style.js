@@ -1,4 +1,7 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Dimensions} from 'react-native';
+
+const WINDOW_HEIGHT = Dimensions.get('window').height;
+const WINDOW_WIDTH = Dimensions.get('window').width;
 
 const styles = StyleSheet.create({
     headerContainer : {
@@ -35,8 +38,8 @@ const styles = StyleSheet.create({
     },
     footerContainer : {
       position: 'absolute',
-      width: '100%',
-      top : 600,
+      top: WINDOW_HEIGHT - 90, 
+      width: WINDOW_WIDTH,
       alignContent:'center',
       alignItems:'center'
     },
@@ -48,7 +51,6 @@ const styles = StyleSheet.create({
       display: 'flex',
       alignItems: 'center',
       letterSpacing: 0.8,
-      color: '#F48120',
       margin: 10
     },
     noteFooter: {

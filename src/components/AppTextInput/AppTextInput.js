@@ -5,7 +5,7 @@ import styles from './AppTextInput.Style';
 
 export default function AppTextInput({
   icon,
-  width = '80%',
+  width = '90%',
   style,
   ...otherProps
 }) {
