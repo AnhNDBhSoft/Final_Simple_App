@@ -1,11 +1,14 @@
 import React from 'react';
-import {View, TextInput, StyleSheet, Platform} from 'react-native';
+import {View, TextInput, Dimensions} from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import styles from './AppTextInput.Style';
 
+const WINDOW_HEIGHT = Dimensions.get('window').height;
+const WINDOW_WIDTH = Dimensions.get('window').width;
+
 export default function AppTextInput({
   icon,
-  width = '90%',
+  width = WINDOW_WIDTH-80,
   textAlign = 'center',
   style,
   ...otherProps
