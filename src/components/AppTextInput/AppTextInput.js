@@ -6,9 +6,11 @@ import styles from './AppTextInput.Style';
 export default function AppTextInput({
   icon,
   width = '90%',
+  textAlign = 'center',
   style,
   ...otherProps
 }) {
+
   return (
     <View style={[styles.container, {width}, style]}>
       {icon && (
@@ -19,7 +21,7 @@ export default function AppTextInput({
           color="#6e6969">
           </MaterialCommunityIcons>
       )}
-      <TextInput style={styles.textInput} {...otherProps} />
+      <TextInput style= {[styles.textInput, {textAlign} ]} {...otherProps} />
     </View>
   );
 }

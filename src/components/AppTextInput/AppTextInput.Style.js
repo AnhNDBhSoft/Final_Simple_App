@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
       color: '#0c0c0c',
       fontSize: 14,
       width: '90%',
-      textAlign : 'center',
+      //textAlign : 'center',
       paddingLeft: 20
     },
     icon: {marginRight: -20 },

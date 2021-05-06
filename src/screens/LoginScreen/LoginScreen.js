@@ -5,8 +5,12 @@ import Screen from '../../components/Screen/Screen';
 import {AppForm, AppFormField, SubmitBtn} from '../../components/Forms';
 import styles from './LoginScreen.Style'
 import { Header } from 'react-native-elements';
+import * as Yup from 'yup';
 
-
+const validateSchema = Yup.object().shape({
+    username: Yup.string().min(6).required().label('Username'),
+    password: Yup.string().min(4).required().label('Password'),
+});
 
 function LoginScreen(props) {
     const [isFocusUser, setIsFocusUser ] = useState(false);
@@ -16,7 +20,6 @@ function LoginScreen(props) {
         setIsFocusUser(false)
         else setIsFocusUser(true)
     };
-
     const handlerFocusPass = (value) => {
         if (value === '') 
         setIsFocusPass(false)
@@ -47,7 +50,7 @@ function LoginScreen(props) {
                     keyboardType="number-pad"
                     autoCorrect={false}
                     textContentType="nickname"
-                    onChangeText={handlerFocusUser}
+                    //onChangeText={handlerFocusUser}
                     ></AppFormField>
                 <AppFormField
                     name="password"
@@ -57,7 +60,7 @@ function LoginScreen(props) {
                     autoCorrect={false}
                     secureTextEntry
                     textContentType="password"
-                    onChangeText={handlerFocusPass}
+                    //onChangeText={handlerFocusPass}
                     ></AppFormField>
                 <SubmitBtn title="登 入" color={'#EC1C24'}/>    
             </AppForm>
