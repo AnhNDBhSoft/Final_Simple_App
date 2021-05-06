@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { useFormikContext } from "formik";
 import AppTextInput from "../AppTextInput/AppTextInput";
 import ErrorMessage from "./ErrorMessage";
 
-export default function AppFormField({ name, width, ...otherProps }) {
+export default function AppFormField({name, width, ...otherProps }) {
+  const [textAlign, setTextAlign] = useState('center');
+  
   const {
     setFieldValue,
     errors,
@@ -17,8 +19,15 @@ export default function AppFormField({ name, width, ...otherProps }) {
       <AppTextInput
         {...otherProps}
         width={width}
-        onBlur={() => setFieldTouched(name)}
-        onChangeText={(text) => setFieldValue(name, text)}
+        textAlign={textAlign}
+        onBlur={() => {
+          setFieldTouched(name)
+        }}
+        onChangeText={(text) => {
+          if (text === '')  setTextAlign('center')
+          else setTextAlign('left')
+
+          setFieldValue(name, text)}}
         value={values[name]}
       />
       <ErrorMessage error={errors[name]} visible={touched[name]} />
